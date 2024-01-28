@@ -21,25 +21,22 @@ If you have a suggestion for a modification or improvement, please open an issue
 
 ## 修正の送り方
 
-[CONTRIBUTING.md](CONTRIBUTING.md)をお読みください。ここには行動規範やプルリクエストの提出手順が詳細に記載されています。
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
-
-1. フォークする
+1. フォークする  
   Fork it!
 
-2. フィーチャーブランチを作成する：`git checkout -b my-new-feature`
+2. フィーチャーブランチを作成する：`git checkout -b my-new-feature`  
   Create your feature branch: `git checkout -b my-new-feature`
 
-3. 変更を追加：`git add .`
+3. 変更を追加：`git add .`  
   Add your changes: `git add .`
 
-4. 変更をコミット：`git commit -am 'Add some feature'`
+4. 変更をコミット：`git commit -am 'Add some feature'`  
   Commit your changes: `git commit -am 'Add some feature'`
 
-5. ブランチをプッシュ：`git push origin my-new-feature`
+5. ブランチをプッシュ：`git push origin my-new-feature`  
   Push to the branch: `git push origin my-new-feature`
 
-6. プルリクエストを提出 :sunglasses:
+6. プルリクエストを提出 :sunglasses:  
   Submit a pull request :sunglasses:
 
 ## テスト

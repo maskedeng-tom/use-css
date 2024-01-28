@@ -801,22 +801,22 @@ npm run build
 [CONTRIBUTING.md](CONTRIBUTING.md)をお読みください。ここには行動規範やプルリクエストの提出手順が詳細に記載されています。
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-1. フォークする
+1. フォークする  
   Fork it!
 
-2. フィーチャーブランチを作成する：`git checkout -b my-new-feature`
+2. フィーチャーブランチを作成する：`git checkout -b my-new-feature`  
   Create your feature branch: `git checkout -b my-new-feature`
 
-3. 変更を追加：`git add .`
+3. 変更を追加：`git add .`  
   Add your changes: `git add .`
 
-4. 変更をコミット：`git commit -am 'Add some feature'`
+4. 変更をコミット：`git commit -am 'Add some feature'`  
   Commit your changes: `git commit -am 'Add some feature'`
 
-5. ブランチをプッシュ：`git push origin my-new-feature`
+5. ブランチをプッシュ：`git push origin my-new-feature`  
   Push to the branch: `git push origin my-new-feature`
 
-6. プルリクエストを提出 :sunglasses:
+6. プルリクエストを提出 :sunglasses:  
   Submit a pull request :sunglasses:
 
 ## Credits
@@ -827,11 +827,11 @@ Simplify the complex development landscape of today! :muscle:
 
 ## Authors
 
-* **Maskedeng Tom** - *Initial work* - [Maskedeng Tom](https://github.com/JohnDoe)
+**Maskedeng Tom** - *Initial work* - [Maskedeng Tom](https://github.com/JohnDoe)
 
-  See also the list of [contributors](https://github.com/maskedeng-tom/use-css/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/maskedeng-tom/use-css/contributors) who participated in this project.
 
-  :smile: [プロジェクト貢献者リスト](https://github.com/maskedeng-tom/use-css/contributors) :smile:
+:smile: [プロジェクト貢献者リスト](https://github.com/maskedeng-tom/use-css/contributors) :smile:
 
 ## Show your support
 

@@ -1,11 +1,13 @@
 # Motivation / Background (概要)
 
 このPull Requestの目的は、[ここに記載してください]
+
 This Pull Request has been created because [REPLACE ME]
 
 ## Detail (詳細)
 
 このPull Requestの変更点は、[ここに記載してください]
+
 This Pull Request changes [REPLACE ME]
 
 ## Additional information　(追加情報)
