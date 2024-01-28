@@ -75,8 +75,8 @@ This is a React hooks library, so it is compatible with React version 16.8 and a
 * [Installation](#installation)
 * [Usage](#usage)
   * [Base program](#base-program)
-  * [how to use `useScopedCss`](#how-to-use-usescopedcss)
-  * [how to use `useGlobalCss`](#how-to-use-useglobalcss)
+  * [How to use `useScopedCss`](#how-to-use-usescopedcss)
+  * [How to use `useGlobalCss`](#how-to-use-useglobalcss)
   * [Using nested CSS](#using-nested-css)
   * [Specifying the scope indicator position](#specifying-the-scope-indicator-position)
   * [Use `dependency` parameter](#use-dependency-parameter)
@@ -172,7 +172,7 @@ const App = () => {
 export default App;
 ```
 
-### how to use `useScopedCss`
+### How to use `useScopedCss`
 
 ```tsx
 // App.tsx
@@ -246,7 +246,7 @@ The above is expanded to the following.
 
 This feature is similar to Vue's scoped style.
 
-### how to use `useGlobalCss`
+### How to use `useGlobalCss`
 
 `useScopedCss`と違い、単純にCSSを適用します。スコープは付与されません。
 

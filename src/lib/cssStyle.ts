@@ -193,28 +193,28 @@ interface CSSStyle {
   'gridTemplateColumns'?: 'none'|'inherit'|'initial'|'revert'|'unset'|CSSString,
   'gridTemplateRows'?: 'none'|'inherit'|'initial'|'revert'|'unset'|CSSString,
 
+  // transition
+  'transitionProperty'?: 'all'|'none'|'inherit'|'initial'|'revert'|'unset'|CSSString,
+  'transitionDuration'?: 'inherit'|'initial'|'revert'|'unset'|CSSString,
+  'transitionTimingFunction'?: 'ease'|'ease-in'|'ease-out'|'ease-in-out'|'linear'|'step-start'|'step-end'|'inherit'|'initial'|'revert'|'unset'|CSSString,
+  'transitionDelay'?: 'inherit'|'initial'|'revert'|'unset'|CSSString,
+  'transition'?: CSSString|
+    [CSSStyle['transitionProperty']]|
+    [CSSStyle['transitionProperty'],CSSStyle['transitionDuration']]|
+    [CSSStyle['transitionProperty'],CSSStyle['transitionDuration'],CSSStyle['transitionTimingFunction']]|
+    [CSSStyle['transitionProperty'],CSSStyle['transitionDuration'],CSSStyle['transitionTimingFunction'],CSSStyle['transitionDelay']],
+
+  // animations
+  'animation'?: CSSString,
+  'animationDuration'?: CSSString,
+  'animationTimingFunction'?: CSSString,
+  'animationDelay'?: CSSString,
+  'animationIterationCount'?: CSSString,
+  'animationDirection'?: CSSString,
+  'animationFillMode'?: CSSString,
+  'animationPlayState'?: CSSString,
+  'animationName'?: CSSString,
 }
-
-/*
-
-トランジション（CSS Transitions）	▲TOP
-transition CSS3
-transition-delay CSS3
-transition-duration CSS3
-transition-property CSS3
-transition-timing-function CSS3
-
-アニメーション（CSS Animations）	▲TOP
-animation CSS3
-animation-delay CSS3
-animation-direction CSS3
-animation-duration CSS3
-animation-fill-mode CSS3
-animation-iteration-count CSS3
-animation-name CSS3
-animation-play-state CSS3
-animation-timing-function CSS3
-*/
 
 const ignorePixelStyle = [
   'boxFlex',
