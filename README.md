@@ -74,10 +74,25 @@ This is a React hooks library, so it is compatible with React version 16.8 and a
 * [Getting Started](#getting-started)
 * [Installation](#installation)
 * [Usage](#usage)
+  * [Base program](#base-program)
+  * [how to use `useScopedCss`](#how-to-use-usescopedcss)
+  * [how to use `useGlobalCss`](#how-to-use-useglobalcss)
+  * [Using nested CSS](#using-nested-css)
+  * [Specifying the scope indicator position](#specifying-the-scope-indicator-position)
+  * [Use `dependency` parameter](#use-dependency-parameter)
 * [API](#api)
   * [useScopedCss](#usescopedcss)
+    * [Options](#options)
+    * [Return value](#return-value)
   * [useGlobalCss](#useglobalcss)
+    * [Options](#options-1)
 * [type SassStyles](#type-sassstyles)
+  * [In the case of simple CSS](#in-the-case-of-simple-css)
+  * [CSS contains the pixel unit](#css-contains-the-pixel-unit)
+  * [CSS containing multiple parameters](#css-containing-multiple-parameters)
+  * [CSS containing nested CSS](#css-containing-nested-css)
+  * [sass '&' selector](#sass--selector)
+  * [`::v-deep` selector](#v-deep-selector)
 * [Getting Started with a Simple React Project](#getting-started-with-a-simple-react-projectwith-webpack)
 * [Contributing](#contributing)
 * [Credits](#credits)
@@ -115,7 +130,7 @@ Please refer to the following for instructions on how to create a simple React p
 
 ## Usage
 
-### Base program (基本的な使い方)
+### Base program
 
 以下の基本プログラムに沿って解説します。
 
@@ -157,7 +172,7 @@ const App = () => {
 export default App;
 ```
 
-### how to use `useScopedCss` (`useScopedCss` の使い方)
+### how to use `useScopedCss`
 
 ```tsx
 // App.tsx
@@ -231,7 +246,7 @@ The above is expanded to the following.
 
 This feature is similar to Vue's scoped style.
 
-### how to use `useGlobalCss` (`useGlobalCss` の使い方)
+### how to use `useGlobalCss`
 
 `useScopedCss`と違い、単純にCSSを適用します。スコープは付与されません。
 
@@ -316,7 +331,7 @@ const App = () => {
 };
 ```
 
-### Using nested CSS (ネストしたCSSの利用)
+### Using nested CSS
 
 `useScopedCss`と`useGlobalCss`は、ネストしたCSSを利用することができます。(`useGlobalCss`では、scopeは付与されません)
 
@@ -386,7 +401,7 @@ The above code generates the following `style` tag. (In fact, line breaks are om
 
 In the case of nested CSS, the scope name (`sc000000`) is added at the end of the selector. Therefore, please note that `{...scope}` is added to all tags on the HTML.
 
-### Specifying the scope indicator position (スコープ指示位置の指定)
+### Specifying the scope indicator position
 
 `::v-deep`を利用することでスコープ指示位置を指定することが可能です。（この機能もVueに似た機能です）
 
@@ -456,7 +471,7 @@ The above code generates the following `style` tag. (In fact, line breaks are om
 
 The scope name (`sc000000`) is inserted at the position specified by `::v-deep`. Therefore, please note that `{...scope}` is added only to the first tag on the HTML.
 
-### Use `dependency` parameter (`dependency`パラメーターの利用)
+### Use `dependency` parameter
 
 `useScopedCss`と`useGlobalCss`は、`dependency`パラメーターを利用することができます。
 
@@ -612,7 +627,7 @@ If this value is specified, the CSS will be reapplied when the dependency change
 
 ## type SassStyles
 
-### In the case of simple CSS (単純なCSSの場合)
+### In the case of simple CSS
 
 ```tsx
 {
@@ -630,7 +645,7 @@ If this value is specified, the CSS will be reapplied when the dependency change
 </style>
 ```
 
-### CSS contains the unit 'px' ('px'単位を含むCSS)
+### CSS contains the pixel unit
 
 'px'単位を含むCSSの場合、`number`型で指定することができます。
 
@@ -652,7 +667,7 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
-### CSS containing multiple parameters (複数パラメータを含むCSS)
+### CSS containing multiple parameters
   
 ```tsx
 {
@@ -670,7 +685,7 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
-### CSS containing nested CSS (ネストしたCSS)
+### CSS containing nested CSS
 
 ```tsx
 {
@@ -694,7 +709,7 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
-### sass '&' selector (sassの`&`セレクター)
+### sass '&' selector
 
 ```tsx
 {
@@ -718,7 +733,7 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
-### `::v-deep` selector (`::v-deep`セレクター)
+### `::v-deep` selector
 
 ```tsx
 {
