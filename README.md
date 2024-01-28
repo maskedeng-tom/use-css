@@ -1,5 +1,33 @@
 # use-css
 
+```tsx
+import { useScopedCss } from '@maskedeng-tom/use-css';
+
+const App = () => {
+  const scope = useScopedCss({
+    '.title':{
+      color: 'red',
+    }
+  });
+  return <div {...scope} className="title">use-css useScopedCss sample !</div>;
+};
+
+export default App;
+```
+
+```html
+<html lang='ja'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>use-css</title>
+    <style>.title[sc000000]{color:red;}</style>
+  </head>
+  <body>
+    <div id='root'><div sc000000="" className="title">use-css useScopedCss sample !</div></div>
+  </body>
+</html>
+```
+
 Reactで、一般的なCSSやスコープ付きCSSを、各種バンドラー(webpackなど)に依存せず、JavaScript、Typescriptで利用するためのReact hooksライブラリーです。簡単に導入でき、他のnpmライブラリへの依存はありません。
 
 This is a React hooks library that allows you to use common CSS and scoped CSS in JavaScript and TypeScript without relying on various bundlers (such as webpack). It is easy to integrate and does not have any dependencies on other npm libraries.
@@ -19,6 +47,7 @@ This is a React hooks library, so it is compatible with React version 16.8 and a
 * [API](#api)
   * [useScopedCss](#usescopedcss)
   * [useGlobalCss](#useglobalcss)
+* [type SassStyles](#type-sassstyles)
 * [Getting Started with a Simple React Project](#getting-started-with-a-simple-react-projectwith-webpack)
 * [Contributing](#contributing)
 * [Credits](#credits)
