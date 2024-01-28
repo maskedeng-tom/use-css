@@ -1,12 +1,19 @@
 {
   "name": "@maskedeng-tom/use-css",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Scoped css hooks library for React",
-  "keywords": ["scoped","css","sass","react","hooks","front-end","framework","web"],
-
+  "keywords": [
+    "scoped",
+    "css",
+    "sass",
+    "react",
+    "hooks",
+    "front-end",
+    "framework",
+    "web"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-
   "author": "Maskedeng Tom",
   "license": "MIT",
   "repository": {
