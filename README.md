@@ -102,7 +102,7 @@ export default App;
 
 ```tsx
 // App.tsx
-+import { useScopedCss } from '@maskedeng-tom/use-css';
+import { useScopedCss } from '@maskedeng-tom/use-css';
 
 const App = () => {
   const scope = useScopedCss({
@@ -180,7 +180,7 @@ Unlike `useScopedCss`, it simply applies CSS. No scope is added.
 
 ```tsx
 // App.tsx
-+import { useGlobalCss } from '@maskedeng-tom/use-css';
+import { useGlobalCss } from '@maskedeng-tom/use-css';
 
 const App = () => {
   useGlobalCss({
@@ -228,7 +228,7 @@ import "./styles.css";
 
 ```tsx
 // App.tsx
-+import { useScopedCss } from '@maskedeng-tom/use-css';
+import { useScopedCss } from '@maskedeng-tom/use-css';
 
 const App = () => {
   const scope = useScopedCss({
@@ -298,7 +298,7 @@ It is possible to specify the scope indicator position by using `::v-deep`. (Thi
 
 ```tsx
 // App.tsx
-+import { useScopedCss } from '@maskedeng-tom/use-css';
+import { useScopedCss } from '@maskedeng-tom/use-css';
 
 const App = () => {
   const scope = useScopedCss({
@@ -365,7 +365,7 @@ The scope name (`sc000000`) is inserted at the position specified by `::v-deep`.
 ### useScopedCss
 
 ```tsx
-useScopedCss(css: SassStyles, dependency: unknown[] = []): void
+useScopedCss(css: SassStyles, dependency: unknown[] = []): {[scope: string]: ''}
 ```
 
 スコープ付きのCSSを適用します。スコープは戻り値に含まれます。戻り値を、`{...scope}`のようにhtmlタグに適用してください。
@@ -393,6 +393,14 @@ Please refer to [type SassStyles](#type-sassstyles).
 この値が指定された場合には、`useEffect`や`useCallback`と同様に、依存関係の変更を検知して再度CSSを適用します（`useEffect`や`useCallback`と違い、デフォルトで `[]`が指定されるため、デフォルトでは変更されません）。
 
 If this value is specified, the CSS will be reapplied when the dependency changes, similar to `useEffect` and `useCallback` (unlike `useEffect` and `useCallback`, the default is `[]`, so it will not be changed by default).
+
+#### Return value
+
+`{[scope: string]: ''}`
+
+ja:スコープ名をキーとしたオブジェクトが返されます。スコープ名は、`{...scope}`のようにhtmlタグに適用してください。
+
+An object with the scope name as the key is returned. Apply the scope name to the html tag as `{...scope}`.
 
 ### useGlobalCss
 
@@ -426,9 +434,135 @@ If this value is specified, the CSS will be reapplied when the dependency change
 
 ## type SassStyles
 
+### In the case of simple CSS (単純なCSSの場合)
 
+```tsx
+{
+  '.selector': {
+    color: 'red',
+  };
+}
+```
 
+```html
+<style>
+.selector{
+  color: red;
+}
+</style>
+```
 
+### CSS contains the unit 'px' ('px'単位を含むCSS)
+
+'px'単位を含むCSSの場合、`number`型で指定することができます。
+
+If the CSS contains the unit 'px', it can be specified as `number` type.
+
+```tsx
+{
+  '.selector': {
+    borderLeft: 1,
+  };
+}
+```
+
+```html
+<style>
+.selector{
+  border-left: 1px;
+}
+</style>
+```
+
+### CSS containing multiple parameters (複数パラメータを含むCSS)
+  
+```tsx
+{
+  '.selector': {
+    border: [1, 'solid', 'red'],
+  };
+}
+```
+
+```html
+<style>
+.selector{
+  border: 1px solid red;
+}
+</style>
+```
+
+### CSS containing nested CSS (ネストしたCSS)
+
+```tsx
+{
+  '.selector': {
+    color: 'red',
+    '.text': {
+      border: [1, 'solid', 'red'],
+    },
+  };
+}
+```
+
+```html
+<style>
+.selector{
+  color: red;
+}
+.selector .text{
+  border: 1px solid red;
+}
+</style>
+```
+
+### sass '&' selector (sassの`&`セレクター)
+
+```tsx
+{
+  '.selector': {
+    color: 'red',
+    '&.active': {
+      color: 'blue',
+    },
+  };
+}
+```
+
+```html
+<style>
+.selector{
+  color: red;
+}
+.selector.active{
+  color: blue;
+}
+</style>
+```
+
+### `::v-deep` selector (`::v-deep`セレクター)
+
+```tsx
+{
+  '.selector ::v-deep': {
+    color: 'red',
+    '.text': {
+      border: [1, 'solid', 'red'],
+    },
+  };
+}
+```
+
+```html
+<style>
+.selector[sc000000]{
+  color: red;
+}
+.selector[sc000000] .text{
+  border: 1px solid red;
+}
+</style>
+```
 
 ## Getting Started with a Simple React Project(with webpack)
 
