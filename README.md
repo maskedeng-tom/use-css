@@ -279,6 +279,43 @@ You will get the same result as when you import css using a general bundler.
 import "./styles.css";
 ```
 
+#### CSS using `@scope`,`:scope` (`@scope`,`:scope` を用いたCSS)
+
+今後サポートが増えていくと思われる、`@scope`,`:scope`と`useGlobalCss`は今後相性のよい実装となるでしょう。
+
+In the future, `@scope`,`:scope` and `useGlobalCss` will be a good implementation for future compatibility.
+
+[MDN @scope](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope)
+
+```tsx
+const App = () => {
+  useGlobalCss({
+    '@scope (.title)':{
+      ':scope':{
+        color: 'green',
+      },
+      '.text':{
+        color: 'red',
+      },
+    }
+  });
+  return <>
+    <div className="title">
+      title:
+      <span className="text">
+        use-css in scope!
+      </span>
+    </div>
+    <div className="title-2">
+      title-2:
+      <span className="text">
+        use-css out of scope!
+      </span>
+    </div>
+  </>;
+};
+```
+
 ### Using nested CSS (ネストしたCSSの利用)
 
 `useScopedCss`と`useGlobalCss`は、ネストしたCSSを利用することができます。(`useGlobalCss`では、scopeは付与されません)
@@ -418,6 +455,88 @@ The above code generates the following `style` tag. (In fact, line breaks are om
 スコープ名(`sc000000`)は、`::v-deep`で指定された場所に挿入されます。よって、HTML上の先頭タグのみに`{...scope}`を付与していることに注目してください。
 
 The scope name (`sc000000`) is inserted at the position specified by `::v-deep`. Therefore, please note that `{...scope}` is added only to the first tag on the HTML.
+
+### Use `dependency` parameter (`dependency`パラメーターの利用)
+
+`useScopedCss`と`useGlobalCss`は、`dependency`パラメーターを利用することができます。
+
+`useScopedCss` and `useGlobalCss` can use the `dependency` parameter.
+
+```tsx
+// App.tsx
+import { useScopedCss } from '@maskedeng-tom/use-css';
+
+const App = () => {
+
+  const [color, setColor] = useState('red');
+
+  const scope = useScopedCss({
+    '.title':{
+      color: color,
+    }
+  }, [color]);
+
+  return <>
+    <div {...scope} className="title">
+        use-css!
+      <button
+        type="button"
+        onClick={()=>{
+          setColor('blue');
+        }}
+      >change color</button>
+    </div>
+  </>;
+};
+
+export default App;
+```
+
+上記のコードは、初期には以下の `style` タグを生成します。（実際には改行コードは省かれます）
+
+The above code generates the following `style` tag at the beginning. (In fact, line breaks are omitted.)
+
+```html
+<style>
+.title[sc000000]{
+  color:red;
+}
+</style>
+```
+
+```html
+<div id="root">
+  <div class="title" sc000000="">
+    use-css!
+    <button type="button">change color</button>
+  </div>
+</div>
+```
+
+その後、ボタンタグをクリックすると、以下のように `style` タグが変更されます。
+
+After that, when you click the button tag, the `style` tag will be changed as follows.
+
+```html
+<style>
+.title[sc000001]{
+  color:blue;
+}
+</style>
+```
+
+```html
+<div id="root">
+  <div class="title" sc000001="">
+    use-css!
+    <button type="button">change color</button>
+  </div>
+</div>
+```
+
+カラーテーマなどを構築する際に、便利に利用できます。
+
+It can be used conveniently when building a color theme.
 
 ## API
 
