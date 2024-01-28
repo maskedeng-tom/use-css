@@ -1,5 +1,19 @@
 # use-css
 
+* input (入力)
+
+```html
+<html lang='ja'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>use-css</title>
+  </head>
+  <body>
+    <div id='root'></div>
+  </body>
+</html>
+```
+
 ```tsx
 import { useScopedCss } from '@maskedeng-tom/use-css';
 
@@ -14,6 +28,22 @@ const App = () => {
 
 export default App;
 ```
+
+```tsx
+// index.tsx
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+
+const root = createRoot(document.getElementById('root') as HTMLElement);
+root.render(
+  <React.StrictMode>
+    <App/>
+  </React.StrictMode>
+);
+```
+
+* output (出力)
 
 ```html
 <html lang='ja'>
