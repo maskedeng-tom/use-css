@@ -1,6 +1,6 @@
 {
   "name": "@maskedeng-tom/use-css",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Scoped css hooks library for React",
   "keywords": [
     "scoped",
