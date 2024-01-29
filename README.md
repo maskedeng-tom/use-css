@@ -43,6 +43,8 @@ root.render(
 );
 ```
 
+<br/>
+
 * output (出力)
 
 ```html
@@ -58,15 +60,21 @@ root.render(
 </html>
 ```
 
+<br/>
+
 Reactで、一般的なCSSやスコープ付きCSSを、各種バンドラー(webpackなど)に依存せず、JavaScript、Typescriptで利用するためのReact hooksライブラリーです。簡単に導入でき、他のnpmライブラリへの依存はありません。
 
-This is a React hooks library that allows you to use common CSS and scoped CSS in JavaScript and TypeScript without relying on various bundlers (such as webpack). It is easy to integrate and does not have any dependencies on other npm libraries.
+> This is a React hooks library that allows you to use common CSS and scoped CSS in JavaScript and TypeScript without relying on various bundlers (such as webpack). It is easy to integrate and does not have any dependencies on other npm libraries.
+
+<br/>
 
 ## Prerequisites
 
 React hooksライブラリーなので、React Version 16.8以降に対応しています。Typescriptにも対応しています。
 
-This is a React hooks library, so it is compatible with React version 16.8 and above. It also supports TypeScript.
+> This is a React hooks library, so it is compatible with React version 16.8 and above. It also supports TypeScript.
+
+<br/>
 
 ## Table of contents
 
@@ -100,6 +108,8 @@ This is a React hooks library, so it is compatible with React version 16.8 and a
 * [Show your support](#show-your-support)
 * [License](#license)
 
+<br/>
+
 ## Getting Started
 
 適当なReactを用意してください。関数コンポーネントを利用するため、React Version 16.8以降が必要です。
@@ -108,11 +118,12 @@ This is a React hooks library, so it is compatible with React version 16.8 and a
 シンプルなReactプロジェクトの作り方については、以下を参考にしてください。
 [Getting Started with a Simple React Project](#getting-started-with-a-simple-react-projectwith-webpack)
 
-Please prepare a suitable React project. React version 16.8 or above is required to use function components.
+> Please prepare a suitable React project. React version 16.8 or above is required to use function components.
 It can also be applied to existing React projects. There will be no destructive changes when introducing it to an existing React project (no dependencies on anything other than React itself).
+> Please refer to the following for instructions on how to create a simple React project.
+> [Getting Started with a Simple React Project](#getting-started-with-a-simple-react-projectwith-webpack)
 
-Please refer to the following for instructions on how to create a simple React project.
-[Getting Started with a Simple React Project](#getting-started-with-a-simple-react-projectwith-webpack)
+<br/>
 
 ## Installation
 
@@ -128,13 +139,15 @@ Please refer to the following for instructions on how to create a simple React p
   yarn add @maskedeng-tom/use-css
   ```
 
+<br/>
+
 ## Usage
 
 ### Base program
 
 以下の基本プログラムに沿って解説します。
 
-We will explain according to the following basic program.
+> We will explain according to the following basic program.
 
 ```html
 <!-- index.html -->
@@ -172,7 +185,11 @@ const App = () => {
 export default App;
 ```
 
+<br/>
+
 ### How to use `useScopedCss`
+
+`useScopedCss`の使い方
 
 ```tsx
 // App.tsx
@@ -192,7 +209,7 @@ export default App;
 
 上記のコードは、以下のような `style` タグと `html` を生成します。
 
-The above code generates the following `style` tag and `html`.
+> The above code generates the following `style` tag and `html`.
 
 ```html
 <!-- index.html -->
@@ -210,7 +227,7 @@ The above code generates the following `style` tag and `html`.
 
 `useScopedCss`は、cssをスコープ付きで`style`タグとして適用します。上記の例では `sc000000` というスコープ名が付与されています。また、スコープ名は自動でユニークなものが付与され、`useScopedCss`の戻り値に含まれています。
 
-`useScopedCss` applies css with a scoped `style` tag. In the above example, the scope name `sc000000` is added. Also, a unique scope name is automatically added and included in the return value of `useScopedCss`.
+> `useScopedCss` applies css with a scoped `style` tag. In the above example, the scope name `sc000000` is added. Also, a unique scope name is automatically added and included in the return value of `useScopedCss`.
 
 ```html
   <style>.title[sc000000]{color:red;}</style>
@@ -218,7 +235,7 @@ The above code generates the following `style` tag and `html`.
 
 `useScopedCss`の戻り値は、以下のようなオブジェクトです。
 
-The return value of `useScopedCss` is an object like the following.
+> The return value of `useScopedCss` is an object like the following.
 
 ```json
 {
@@ -228,7 +245,7 @@ The return value of `useScopedCss` is an object like the following.
 
 `useScopedCss`の戻り値を、`div`タグの属性に展開することで(`{...scope}`の付与)、スコープ付きのcssが適用されるタグが生成されます。
 
-By expanding the return value of `useScopedCss` to the attributes of the `div` tag (by adding `{...scope}`), a tag with scoped css applied is generated.
+> By expanding the return value of `useScopedCss` to the attributes of the `div` tag (by adding `{...scope}`), a tag with scoped css applied is generated.
 
 ```tsx
   return <div {...scope} className="title">use-css useScopedCss sample !</div>;
@@ -236,7 +253,7 @@ By expanding the return value of `useScopedCss` to the attributes of the `div` t
 
 上記が下記に展開されます。
 
-The above is expanded to the following.
+> The above is expanded to the following.
 
 ```html
   <div sc000000="" className="title">use-css useScopedCss sample !</div>
@@ -244,13 +261,17 @@ The above is expanded to the following.
 
 この機能は、Vueの、スコープドスタイルに似ています。
 
-This feature is similar to Vue's scoped style.
+> This feature is similar to Vue's scoped style.
+
+<br/>
 
 ### How to use `useGlobalCss`
 
+`useGlobalCss`の使い方
+
 `useScopedCss`と違い、単純にCSSを適用します。スコープは付与されません。
 
-Unlike `useScopedCss`, it simply applies CSS. No scope is added.
+> Unlike `useScopedCss`, it simply applies CSS. No scope is added.
 
 ```tsx
 // App.tsx
@@ -270,7 +291,7 @@ export default App;
 
 上記のコードは、以下のような `style` タグと `html` を生成します。
 
-The above code generates the following `style` tag and `html`.
+> The above code generates the following `style` tag and `html`.
 
 ```html
 <!-- index.html -->
@@ -288,17 +309,20 @@ The above code generates the following `style` tag and `html`.
 
 一般的な各種バンドラーを利用してcssをインポートする場合と同様の結果が得られます。
 
-You will get the same result as when you import css using a general bundler.
+> You will get the same result as when you import css using a general bundler.
 
 ```tsx
+// sample
 import "./styles.css";
 ```
+
+<br/>
 
 #### CSS using `@scope`,`:scope` (`@scope`,`:scope` を用いたCSS)
 
 今後サポートが増えていくと思われる、`@scope`,`:scope`と`useGlobalCss`は今後相性のよい実装となるでしょう。
 
-In the future, `@scope`,`:scope` and `useGlobalCss` will be a good implementation for future compatibility.
+> In the future, `@scope`,`:scope` and `useGlobalCss` will be a good implementation for future compatibility.
 
 [MDN @scope](https://developer.mozilla.org/en-US/docs/Web/CSS/@scope)
 
@@ -331,11 +355,13 @@ const App = () => {
 };
 ```
 
+<br/>
+
 ### Using nested CSS
 
 `useScopedCss`と`useGlobalCss`は、ネストしたCSSを利用することができます。(`useGlobalCss`では、scopeは付与されません)
 
-`useScopedCss` and `useGlobalCss` can use nested CSS. (No scope is added with `useGlobalCss`)
+> `useScopedCss` and `useGlobalCss` can use nested CSS. (No scope is added with `useGlobalCss`)
 
 ```tsx
 // App.tsx
@@ -370,7 +396,7 @@ export default App;
 
 上記のコードは、以下のような `style` タグを生成します。（実際には改行コードは省かれます）
 
-The above code generates the following `style` tag. (In fact, line breaks are omitted.)
+> The above code generates the following `style` tag. (In fact, line breaks are omitted.)
 
 ```html
 <style>
@@ -399,13 +425,17 @@ The above code generates the following `style` tag. (In fact, line breaks are om
 
 スコープ名(`sc000000`)は、ネストしたCSSの場合、セレクタの末尾に付与されます。よって、HTML上のすべてのタグに`{...scope}`を付与していることに注目してください。
 
-In the case of nested CSS, the scope name (`sc000000`) is added at the end of the selector. Therefore, please note that `{...scope}` is added to all tags on the HTML.
+> In the case of nested CSS, the scope name (`sc000000`) is added at the end of the selector. Therefore, please note that `{...scope}` is added to all tags on the HTML.
+
+<br/>
 
 ### Specifying the scope indicator position
 
+スコープ指示位置の指定方法(`::v-deep`)
+
 `::v-deep`を利用することでスコープ指示位置を指定することが可能です。（この機能もVueに似た機能です）
 
-It is possible to specify the scope indicator position by using `::v-deep`. (This feature is also similar to Vue)
+> It is possible to specify the scope indicator position by using `::v-deep`. (This feature is also similar to Vue)
 
 ```tsx
 // App.tsx
@@ -440,7 +470,7 @@ export default App;
 
 上記のコードは、以下のような `style` タグを生成します。（実際には改行コードは省かれます）
 
-The above code generates the following `style` tag. (In fact, line breaks are omitted.)
+> The above code generates the following `style` tag. (In fact, line breaks are omitted.)
 
 ```html
 <style>
@@ -469,13 +499,15 @@ The above code generates the following `style` tag. (In fact, line breaks are om
 
 スコープ名(`sc000000`)は、`::v-deep`で指定された場所に挿入されます。よって、HTML上の先頭タグのみに`{...scope}`を付与していることに注目してください。
 
-The scope name (`sc000000`) is inserted at the position specified by `::v-deep`. Therefore, please note that `{...scope}` is added only to the first tag on the HTML.
+> The scope name (`sc000000`) is inserted at the position specified by `::v-deep`. Therefore, please note that `{...scope}` is added only to the first tag on the HTML.
+
+<br/>
 
 ### Use `dependency` parameter
 
 `useScopedCss`と`useGlobalCss`は、`dependency`パラメーターを利用することができます。
 
-`useScopedCss` and `useGlobalCss` can use the `dependency` parameter.
+> `useScopedCss` and `useGlobalCss` can use the `dependency` parameter.
 
 ```tsx
 // App.tsx
@@ -509,7 +541,7 @@ export default App;
 
 上記のコードは、初期には以下の `style` タグを生成します。（実際には改行コードは省かれます）
 
-The above code generates the following `style` tag at the beginning. (In fact, line breaks are omitted.)
+> The above code generates the following `style` tag at the beginning. (In fact, line breaks are omitted.)
 
 ```html
 <style>
@@ -530,7 +562,7 @@ The above code generates the following `style` tag at the beginning. (In fact, l
 
 その後、ボタンタグをクリックすると、以下のように `style` タグが変更されます。
 
-After that, when you click the button tag, the `style` tag will be changed as follows.
+> After that, when you click the button tag, the `style` tag will be changed as follows.
 
 ```html
 <style>
@@ -551,7 +583,9 @@ After that, when you click the button tag, the `style` tag will be changed as fo
 
 カラーテーマなどを構築する際に、便利に利用できます。
 
-It can be used conveniently when building a color theme.
+> It can be used conveniently when building a color theme.
+
+<br/>
 
 ## API
 
@@ -563,37 +597,41 @@ useScopedCss(css: SassStyles, dependency: unknown[] = []): {[scope: string]: ''}
 
 スコープ付きのCSSを適用します。スコープは戻り値に含まれます。戻り値を、`{...scope}`のようにhtmlタグに適用してください。
 
-Applies CSS with a scope. The scope is included in the return value. Apply the return value to the html tag as `{...scope}`.
+> Applies CSS with a scope. The scope is included in the return value. Apply the return value to the html tag as `{...scope}`.
 
 #### Options
 
 `css`
 
 | Type | Default value |
-| --- | --- |
-| SassStyles | - |
+| :---: | :---: |
+| SassStyles | n/a |
 
 [type SassStyles](#type-sassstyles)を参照してください。
 
-Please refer to [type SassStyles](#type-sassstyles).
+> Please refer to [type SassStyles](#type-sassstyles).
 
 `dependency`
 
 | Type | Default value |
-| --- | --- |
+| :---: | :---: |
 | unknown[] | [] |
 
 この値が指定された場合には、`useEffect`や`useCallback`と同様に、依存関係の変更を検知して再度CSSを適用します（`useEffect`や`useCallback`と違い、デフォルトで `[]`が指定されるため、デフォルトでは変更されません）。
 
-If this value is specified, the CSS will be reapplied when the dependency changes, similar to `useEffect` and `useCallback` (unlike `useEffect` and `useCallback`, the default is `[]`, so it will not be changed by default).
+> If this value is specified, the CSS will be reapplied when the dependency changes, similar to `useEffect` and `useCallback` (unlike `useEffect` and `useCallback`, the default is `[]`, so it will not be changed by default).
 
 #### Return value
 
-`{[scope: string]: ''}`
+| Type |
+| :---: |
+| `{[scope: string]: ''}` |
 
-ja:スコープ名をキーとしたオブジェクトが返されます。スコープ名は、`{...scope}`のようにhtmlタグに適用してください。
+スコープ名をキーとしたオブジェクトが返されます。スコープ名は、`{...scope}`のようにhtmlタグに適用してください。
 
-An object with the scope name as the key is returned. Apply the scope name to the html tag as `{...scope}`.
+> An object with the scope name as the key is returned. Apply the scope name to the html tag as `{...scope}`.
+
+<br/>
 
 ### useGlobalCss
 
@@ -603,31 +641,37 @@ useGlobalCss(css: SassStyles, dependency: unknown[] = []): void
 
 スコープ無しのCSSを適用します。戻り値はありません。
 
+> Applies CSS without a scope. There is no return value.
+
 #### Options
 
 `css`
 
 | Type | Default value |
-| --- | --- |
-| SassStyles | - |
+| --- | :---: |
+| SassStyles | n/a |
 
 [type SassStyles](#type-sassstyles)を参照してください。
 
-Please refer to [type SassStyles](#type-sassstyles).
+> Please refer to [type SassStyles](#type-sassstyles).
 
 `dependency`
 
 | Type | Default value |
-| --- | --- |
+| --- | :---: |
 | unknown[] | [] |
 
 この値が指定された場合には、`useEffect`や`useCallback`と同様に、依存関係の変更を検知して再度CSSを適用します（`useEffect`や`useCallback`と違い、デフォルトで `[]`が指定されるため、デフォルトでは変更されません）。
 
-If this value is specified, the CSS will be reapplied when the dependency changes, similar to `useEffect` and `useCallback` (unlike `useEffect` and `useCallback`, the default is `[]`, so it will not be changed by default).
+> If this value is specified, the CSS will be reapplied when the dependency changes, similar to `useEffect` and `useCallback` (unlike `useEffect` and `useCallback`, the default is `[]`, so it will not be changed by default).
+
+<br/>
 
 ## type SassStyles
 
 ### In the case of simple CSS
+
+シンプルなCSS
 
 ```tsx
 {
@@ -645,11 +689,13 @@ If this value is specified, the CSS will be reapplied when the dependency change
 </style>
 ```
 
+<br/>
+
 ### CSS contains the pixel unit
 
 'px'単位を含むCSSの場合、`number`型で指定することができます。
 
-If the CSS contains the unit 'px', it can be specified as `number` type.
+> If the CSS contains the unit 'px', it can be specified as `number` type.
 
 ```tsx
 {
@@ -667,8 +713,14 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
+<br/>
+
 ### CSS containing multiple parameters
-  
+
+複数パラメータを持つ一部のCSSは配列で指定することができます。
+
+> Some CSS with multiple parameters can be specified as an array.
+
 ```tsx
 {
   '.selector': {
@@ -685,7 +737,13 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
+<br/>
+
 ### CSS containing nested CSS
+
+sassのようなネストしたCSSを指定することができます。
+
+> You can specify nested CSS like sass.
 
 ```tsx
 {
@@ -709,13 +767,19 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
+<br/>
+
 ### sass '&' selector
+
+sassのようなにセレクターの先頭に'&'を付与すると、セレクターを結合します。
+
+> You can specify CSS with '&' selectors like sass.
 
 ```tsx
 {
   '.selector': {
     color: 'red',
-    '&.active': {
+    '&:hover': {
       color: 'blue',
     },
   };
@@ -727,13 +791,19 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 .selector{
   color: red;
 }
-.selector.active{
+.selector:hover{
   color: blue;
 }
 </style>
 ```
 
+<br/>
+
 ### `::v-deep` selector
+
+`::v-deep`を使って、scope指示位置を指定することができます。
+
+> You can use `::v-deep` to specify the scope indicator position.
 
 ```tsx
 {
@@ -757,9 +827,13 @@ If the CSS contains the unit 'px', it can be specified as `number` type.
 </style>
 ```
 
+<br/>
+
 ## Getting Started with a Simple React Project(with webpack)
 
 シンプルなReactプロジェクトのはじめかた(webpack利用例)
+
+<br/>
 
 ### Create project folder (プロジェクトフォルダの作成)
 
@@ -768,11 +842,15 @@ mkdir test-app
 cd test-app
 ```
 
+<br/>
+
 ### Initializing package (パッケージの初期化)
 
 ```sh
 npm -y init
 ```
+
+<br/>
 
 ### Package Installation (パッケージのインストール)
 
@@ -781,6 +859,8 @@ npm install --save-dev webpack webpack-cli webpack-dev-server html-webpack-plugi
 npm install --save-dev typescript ts-loader
 npm install --save-dev react react-dom @types/react @types/react-dom
 ```
+
+<br/>
 
 ### Changes to `package.json` (`package.json`の変更)
 
@@ -791,6 +871,8 @@ npm install --save-dev react react-dom @types/react @types/react-dom
 +    "build": "webpack-cli --node-env=production --mode production",
   },
 ```
+
+<br/>
 
 ### Adding `webpack.config.js` (`webpack.config.js`の追加)
 
@@ -849,11 +931,15 @@ module.exports = (env, { mode }) => {
 };
 ```
 
+<br/>
+
 ### Initializing TypeScript (Typescriptの初期化)
 
 ```sh
 npx tsc --init
 ```
+
+<br/>
 
 ### Changes to `tsconfig.json` (`tsconfig.json`の変更)
 
@@ -880,6 +966,8 @@ npx tsc --init
 }
 ```
 
+<br/>
+
 ### Adding `src/index.html` (`src/index.html`の追加)
 
 ```sh
@@ -898,6 +986,8 @@ mkdir src
   </body>
 </html>
 ```
+
+<br/>
 
 ### Adding `src/index.tsx` (`src/index.tsx`の追加)
 
@@ -918,11 +1008,15 @@ root.render(
 );
 ```
 
+<br/>
+
 ### Run (実行)
 
 ```sh
 npm start
 ```
+
+<br/>
 
 ### Build (ビルド)
 
@@ -930,48 +1024,66 @@ npm start
 npm run build
 ```
 
+<br/>
+
 ## Contributing
 
 [CONTRIBUTING.md](CONTRIBUTING.md)をお読みください。ここには行動規範やプルリクエストの提出手順が詳細に記載されています。
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 1. フォークする  
-  Fork it!
 
 2. フィーチャーブランチを作成する：`git checkout -b my-new-feature`  
-  Create your feature branch: `git checkout -b my-new-feature`
 
 3. 変更を追加：`git add .`  
-  Add your changes: `git add .`
 
 4. 変更をコミット：`git commit -am 'Add some feature'`  
-  Commit your changes: `git commit -am 'Add some feature'`
 
 5. ブランチをプッシュ：`git push origin my-new-feature`  
-  Push to the branch: `git push origin my-new-feature`
 
 6. プルリクエストを提出 :sunglasses:  
-  Submit a pull request :sunglasses:
+
+> Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+>
+> 1. Fork it!
+>
+> 2. Create your feature branch: `git checkout -b my-new-feature`
+> 
+> 3. Add your changes: `git add .`
+> 
+> 4. Commit your changes: `git commit -am 'Add some feature'`
+> 
+> 5. Push to the branch: `git push origin my-new-feature`
+> 
+> 6. Submit a pull request :sunglasses:
+
+
+<br/>
 
 ## Credits
 
 昨今の複雑化していく開発現場にシンプルな力を！ :muscle:
 
-Simplify the complex development landscape of today! :muscle:
+> Simplify the complex development landscape of today! :muscle:
+
+<br/>
 
 ## Authors
 
 **Maskedeng Tom** - *Initial work* - [Maskedeng Tom](https://github.com/JohnDoe)
 
-See also the list of [contributors](https://github.com/maskedeng-tom/use-css/contributors) who participated in this project.
-
 :smile: [プロジェクト貢献者リスト](https://github.com/maskedeng-tom/use-css/contributors) :smile:
+
+> See also the list of [contributors](https://github.com/maskedeng-tom/use-css/contributors) who participated in this project.
+
+<br/>
 
 ## Show your support
 
 お役に立った場合はぜひ :star: を！
 
-Please :star: this repository if this project helped you!
+> Please :star: this repository if this project helped you!
+
+<br/>
 
 ## License
 
