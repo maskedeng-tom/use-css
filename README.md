@@ -1031,31 +1031,20 @@ npm run build
 [CONTRIBUTING.md](CONTRIBUTING.md)をお読みください。ここには行動規範やプルリクエストの提出手順が詳細に記載されています。
 
 1. フォークする  
-
 2. フィーチャーブランチを作成する：`git checkout -b my-new-feature`  
-
 3. 変更を追加：`git add .`  
-
 4. 変更をコミット：`git commit -am 'Add some feature'`  
-
 5. ブランチをプッシュ：`git push origin my-new-feature`  
-
 6. プルリクエストを提出 :sunglasses:  
 
 > Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 >
 > 1. Fork it!
->
 > 2. Create your feature branch: `git checkout -b my-new-feature`
-> 
 > 3. Add your changes: `git add .`
-> 
 > 4. Commit your changes: `git commit -am 'Add some feature'`
-> 
 > 5. Push to the branch: `git push origin my-new-feature`
-> 
 > 6. Submit a pull request :sunglasses:
-
 
 <br/>
 
