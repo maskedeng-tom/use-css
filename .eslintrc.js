@@ -46,7 +46,7 @@ module.exports = {
       },
     },
     {
-      files: ['**/*.tsx'],
+      files: ['**/*.ts', '**/*.tsx'],
       plugins: [
         'react-hooks',
         'react',

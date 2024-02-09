@@ -771,7 +771,7 @@ sassのようなネストしたCSSを指定することができます。
 
 ### sass '&' selector
 
-sassのようなにセレクターの先頭に'&'を付与すると、セレクターを結合します。
+sassのようにセレクターの先頭に'&'を付与すると、セレクターを結合します。
 
 > You can specify CSS with '&' selectors like sass.
 

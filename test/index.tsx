@@ -4,11 +4,11 @@ import { useScopedCss } from '../';
 
 const App = () => {
   const scope = useScopedCss({
-    '.test':{
+    '::v-deep':{
       color: 'red',
     }
   });
-  return <div {...scope} className="test">TEXT</div>;
+  return <div {...scope}>TEXT<div>SUB</div></div>;
 };
 
 const root = createRoot(document.getElementById('root') as HTMLElement);
