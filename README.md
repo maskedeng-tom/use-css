@@ -1,5 +1,8 @@
 # use-css
 
+[![npm version](https://badge.fury.io/js/%40maskedeng-tom%2Fuse-css.svg)](https://badge.fury.io/js/%40maskedeng-tom%2Fuse-css)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 * input (入力)
 
 ```html
@@ -1058,7 +1061,7 @@ npm run build
 
 ## Authors
 
-**Maskedeng Tom** - *Initial work* - [Maskedeng Tom](https://github.com/JohnDoe)
+**Maskedeng Tom** - *Initial work* - [Maskedeng Tom](https://github.com/maskedeng-tom)
 
 :smile: [プロジェクト貢献者リスト](https://github.com/maskedeng-tom/use-css/contributors) :smile:
 
