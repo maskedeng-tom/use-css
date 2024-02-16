@@ -608,11 +608,7 @@ useScopedCss(css: SassStyles, dependency: unknown[] = []): {[scope: string]: ''}
 
 | Type | Default value |
 | :---: | :---: |
-| SassStyles | n/a |
-
-[type SassStyles](#type-sassstyles)を参照してください。
-
-> Please refer to [type SassStyles](#type-sassstyles).
+| [type SassStyles](#type-sassstyles) | n/a |
 
 `dependency`
 
@@ -652,11 +648,7 @@ useGlobalCss(css: SassStyles, dependency: unknown[] = []): void
 
 | Type | Default value |
 | --- | :---: |
-| SassStyles | n/a |
-
-[type SassStyles](#type-sassstyles)を参照してください。
-
-> Please refer to [type SassStyles](#type-sassstyles).
+| [type SassStyles](#type-sassstyles) | n/a |
 
 `dependency`
 
